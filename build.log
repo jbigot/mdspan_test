@@ -1,0 +1,47 @@
+$ cmake ..
+-- The CXX compiler identification is GNU 10.2.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detected support for C++20 standard
+-- Performing Test COMPILER_SUPPORTS_FCONCEPTS
+-- Performing Test COMPILER_SUPPORTS_FCONCEPTS - Success
+-- Using "-fconcepts" to enable concepts support
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mdspan_test/build
+
+
+$ make VERBOSE=1
+/usr/bin/cmake -S/mdspan_test -B/mdspan_test/build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /mdspan_test/build/CMakeFiles /mdspan_test/build//CMakeFiles/progress.marks
+make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/mdspan_test/build'
+make  -f CMakeFiles/mdspan_test.dir/build.make CMakeFiles/mdspan_test.dir/depend
+make[2]: Entering directory '/mdspan_test/build'
+cd /mdspan_test/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /mdspan_test /mdspan_test /mdspan_test/build /mdspan_test/build /mdspan_test/build/CMakeFiles/mdspan_test.dir/DependInfo.cmake --color=
+Dependee "/mdspan_test/build/CMakeFiles/mdspan_test.dir/DependInfo.cmake" is newer than depender "/mdspan_test/build/CMakeFiles/mdspan_test.dir/depend.internal".
+Dependee "/mdspan_test/build/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "/mdspan_test/build/CMakeFiles/mdspan_test.dir/depend.internal".
+Scanning dependencies of target mdspan_test
+make[2]: Leaving directory '/mdspan_test/build'
+make  -f CMakeFiles/mdspan_test.dir/build.make CMakeFiles/mdspan_test.dir/build
+make[2]: Entering directory '/mdspan_test/build'
+[ 50%] Building CXX object CMakeFiles/mdspan_test.dir/mdspan_test.cpp.o
+/usr/bin/c++  -I/mdspan_test/vendor/mdspan/include -std=gnu++17 -o CMakeFiles/mdspan_test.dir/mdspan_test.cpp.o -c /mdspan_test/mdspan_test.cpp
+In file included from /mdspan_test/vendor/mdspan/include/experimental/__p0009_bits/fixed_layout_impl.hpp:50,
+                 from /mdspan_test/vendor/mdspan/include/experimental/__p0009_bits/layout_right.hpp:47,
+                 from /mdspan_test/vendor/mdspan/include/experimental/__p0009_bits/basic_mdspan.hpp:48,
+                 from /mdspan_test/vendor/mdspan/include/experimental/mdspan:48,
+                 from /mdspan_test/mdspan_test.cpp:2:
+/mdspan_test/vendor/mdspan/include/experimental/__p0009_bits/extents.hpp: In instantiation of ‘constexpr std::experimental::extents<Extents>::extents(const std::array<IndexType, std::experimental::extents<Extents>::rank_dynamic()>&) [with IndexType = long unsigned int; typename std::enable_if<is_convertible_v<IndexType, long int>, int>::type <anonymous> = 0; long int ...Extents = {-1, -1, -1}]’:
+/mdspan_test/mdspan_test.cpp:11:85:   required from here
+/mdspan_test/vendor/mdspan/include/experimental/__p0009_bits/extents.hpp:208:69: error: no type named ‘stored_type’ in ‘struct std::experimental::detail::__no_unique_address_emulation<std::experimental::detail::__partially_static_sizes_tagged<std::experimental::detail::__extents_tag, -1, -1, -1>, 0, void>’
+  208 |         detail::__construct_psa_from_dynamic_values_tag_t<>{}, dyn}})
+      |                                                                     ^
+make[2]: *** [CMakeFiles/mdspan_test.dir/build.make:82: CMakeFiles/mdspan_test.dir/mdspan_test.cpp.o] Error 1
+make[2]: Leaving directory '/mdspan_test/build'
+make[1]: *** [CMakeFiles/Makefile2:114: CMakeFiles/mdspan_test.dir/all] Error 2
+make[1]: Leaving directory '/mdspan_test/build'
+make: *** [Makefile:149: all] Error 2
